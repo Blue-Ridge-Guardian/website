@@ -66,39 +66,34 @@
       </nav>
     </div>
   </header>
-
   <main class="container mx-auto p-8 space-y-16">
-    <section class="grid md:grid-cols-2 gap-8 items-center">
-      <div>
-        <h1 class="text-4xl font-bold leading-tight mb-4">Secure. Validate. Maximize ROI.</h1>
-        <p class="text-lg text-secondary">We help organizations use Generative AI with confidence—ensuring security, compliance, and business value.</p>
-      </div>
-      <img src="assets/logo.png" alt="Hero logo" class="w-full max-w-sm mx-auto md:mx-0"/>
-    </section>
+<h1 class="text-3xl font-bold mb-6">ROI Dashboard (Live View)</h1>
+<canvas id="roiChart" class="bg-white p-4 rounded-xl shadow-md max-w-2xl mx-auto"></canvas>
 
-    <section class="text-center">
-      <h2 class="text-3xl font-semibold mb-4">What We Deliver</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white shadow-md rounded-xl">
-          <h3 class="text-xl font-bold mb-2">AI ROI Justification</h3>
-          <p>Quantify financial impact, reduce operational drag, and unlock executive confidence in GenAI initiatives.</p>
-        </div>
-        <div class="p-6 bg-white shadow-md rounded-xl">
-          <h3 class="text-xl font-bold mb-2">Generative AI Security</h3>
-          <p>Prevent prompt injection, data leakage, and tool abuse through policy, tooling, and governance.</p>
-        </div>
-        <div class="p-6 bg-white shadow-md rounded-xl">
-          <h3 class="text-xl font-bold mb-2">MCP & Guardrails</h3>
-          <p>We implement robust pre- and post-filtering pipelines, secure toolchains, and risk-aware controls.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="text-center">
-      <a href="services.html" class="btn btn-primary text-white text-lg mt-4 px-10 py-3">Explore Services</a>
-    </section>
-  </main>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('roiChart').getContext('2d');
+const roiChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Cost Savings ($)',
+      data: [55000, 72000, 91000, 112000],
+      backgroundColor: '#436a8a'
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+</script>
+</main>
   <footer class="bg-primary text-white text-center py-6 mt-12">
     <p>© 2025 Blue Ridge Guardian. All rights reserved.</p>
   </footer>
